@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de San Valentín</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: url("https://image.slidesdocs.com/responsive-images/background/purple-love-shading-letter-simple-powerpoint-background_0bf0d0a71e__960_540.jpg") no-repeat center center fixed;
+            background-size: cover;
+            padding: 50px;
+        }
+        .card {
+            background: rgb(216, 75, 204);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        button {
+            padding: 20px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 28px;
+        }
+        .yes {
+            background-color: red;
+            color: rgb(255, 255, 255);
+        }
+        .no {
+            background-color: gray;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        
+        <source src="imagenes/Mi Audio.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="card" id="card">
+        <img src="imagenes/gatito.gif" width="300">
+        <h2>¿QUIERES SER MI SAN VALENTÍN?</h2>
+        <button class="yes" onclick="showTransition()">Sí</button>
+        <button class="no" onclick="changeNo()">No</button>
+    </div>
+
+<script>
+        let noClicks = 0;
+        const noMessages = ["¿Seguro? 😢", "Piénsalo bien... 💔", "Última oportunidad... 😭"];
+
+        function showTransition() {
+            document.body.innerHTML = `
+                <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif; background: url('tu-fondo.jpg') no-repeat center center fixed; background-size: cover; color: white; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                     <h1>¡Sabía que dirías que sí! ❤️</h1>
+                   <iframe src="https://player.vimeo.com/video/1054283010?h=501514d6f6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="480" allow="autoplay"></iframe> 
+                </div>
+            `;
+            setTimeout(showYes, 18000); 
+        }
+
+        function showYes() {
+    document.body.innerHTML = `
+        <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif; background: url('tu-fondo.jpg') no-repeat center center fixed; background-size: cover; color: white; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+           
+            <p>Eres la persona más especial para mí.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <a href='https://postimages.org/' target='_blank'>
+                    <img src='https://i.postimg.cc/c4S82LjL/Whats-App-Image-2025-02-03-at-5-55-10-PM.jpg' border='0' width="300" height="300" alt='img1'/>
+                </a>
+                <a href='https://postimg.cc/2V35QM5V' target='_blank'>
+                    <img src='https://i.postimg.cc/c4B8SNyM/Whats-App-Image-2025-02-06-at-4-23-59-PM.jpg' border='0' width="300" height="300" alt='img2'/>
+                </a>
+                <img src="imagenes/video chistoso.gif" width="300" height="300" alt='img3'>
+            </div>
+        </div>
+    `;
+}
+
+        function changeNo() {
+            if (noClicks < noMessages.length) {
+                document.querySelector(".no").innerText = noMessages[noClicks];
+                noClicks++;
+            } else {
+                document.querySelector(".no").innerText = "Está bien... 😭";
+            }
+        }
+     
+function detenerAudio() {
+    var audio = document.getElementById("miAudio");
+    audio.pause();  // Detiene la reproducción
+    audio.currentTime = 0; // Reinicia el audio al inicio
+}
+
+    </script>
+</body>
+</html>
